@@ -58,23 +58,35 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           label={`${movie.vote_average} (${movie.vote_count}`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+        </Paper>
+
+        <Paper 
+        component="ul" 
+        sx={{...root}}
+      >
+        <li>
+          <Chip label="Production Countries" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map((g) => (
+          <li key={g.name}>
+            <Chip label={g.name} sx={{...chip}} />
+          </li>
+        ))}
       </Paper>
+
+      
       <Fab
         color="secondary"
         variant="extended"
-        onClick={() =>setDrawerOpen(true)}
         sx={{
-          position: 'fixed',
-          bottom: '1em',
-          right: '1em'
+            position: "fixed",
+            bottom: 2,
+            right: 2
         }}
       >
         <NavigationIcon />
         Reviews
       </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <MovieReviews movie={movie} />
-      </Drawer>
       </>
   );
 };
