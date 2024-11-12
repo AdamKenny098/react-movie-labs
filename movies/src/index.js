@@ -18,8 +18,8 @@ import PopularMoviesPage from "./pages/popularMoviesPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 360000,
-      refetchInterval: 360000, 
+      staleTime: 60,
+      refetchInterval: 60, 
       refetchOnWindowFocus: false
     },
   },
