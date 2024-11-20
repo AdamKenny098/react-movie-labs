@@ -3,8 +3,8 @@ import PageTemplate from "../components/templateMovieListPage";
 import { MoviesContext } from "../contexts/moviesContext";
 import { useQueries } from "react-query";
 import { getMovie } from "../api/tmdb-api";
-import Spinner from '../components/spinner'
-import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
+import Spinner from '../components/spinner';
+import RemoveFromWatchList from "../components/cardIcons/removeFromWatchList";
 
 const WatchListPage = () => {
   const {mustWatchs: movieIds } = useContext(MoviesContext);
@@ -39,7 +39,7 @@ const WatchListPage = () => {
       action={(movie) => {
         return (
           <>
-            <RemoveFromFavorites movie={movie} />
+            <RemoveFromWatchList movie={movie} />
           </>
         );
       }}
